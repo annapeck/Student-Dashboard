@@ -1,0 +1,28 @@
+<h1>New Student</h1>
+
+<form action = "/dojos/<%= @dojo.id %>/students" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label for="branch">First Name:</label>
+    <input type="text" class="form-control" name="first_name"placeholder="First Name">
+  </div>
+  <div class="form-group">
+    <label for="street">Last Name:</label>
+    <input type="text" class="form-control" name="last_name"placeholder="Last Name">
+  </div>
+  <div class="form-group">
+    <label for="city">Email:</label>
+    <input type="text" class="form-control" name="email"placeholder="Email">
+  </div>
+  <div>
+  	<select name="student_id">
+  		<option value="<%= @dojo.id %>"><%= @dojo.branch %> </option>
+  	</select>
+  </div>
+
+  <div>
+  <button type="submit" value = "Create" class="btn btn-primary">Create</button>
+  </div>
+</form>
+
+<a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>"><%= @dojo.branch %></a>

@@ -1,0 +1,31 @@
+<h1><%= @dojo.branch %></h1>
+<h2>Address: <%= @dojo.street %></h2>
+<h2>City: <%= @dojo.city %></h2>
+<h2>State: <%= @dojo.state %></h2>
+
+<a href="/dojos">Home</a> | <a href="/dojos/<%= @dojo.id %>/edit">Edit</a> | <a href="/dojos/<%= @dojo.id %>/students/new">Add Student</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    	<% @student.each do |s| %>
+      <th scope="row"><%=s.first_name %></th>
+      <td><%=s.last_name %></td>
+      <td><%=s.email %></td>
+      <td><a href="/dojos/<%= @dojo.id %>/students/<%= s.id %>">Show</a> 
+        | <a href="/dojos/<%= @dojo.id %>/students/<%= s.id %>/edit">Edit</a> 
+        | <a href="/dojos/<%= @dojo.id %>/students/<%= s.id %>" data-method="delete">Destroy</a></td>
+		
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+

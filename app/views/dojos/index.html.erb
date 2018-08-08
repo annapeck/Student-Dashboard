@@ -1,0 +1,35 @@
+<h1>Listing <%= @dojos.length %> Dojos</h1>
+
+<% flash.each do |key, value| %>
+<div class="alert alert-<%= key %>" role="alert">
+  <%= value %>
+</div>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Coding Dojo Branch</th>
+      <th scope="col">Street</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @dojos.each do |d| %>
+    <tr>
+    	
+      <th scope="row"><%= d.branch %></th>
+      <td><%= d.street %></td>
+      <td><%= d.city %></td>
+      <td><%= d.state %></td>
+      <td><a href="/dojos/<%= d.id %>">Show</a> | <a href="/dojos/<%= d.id %>/edit">Edit</a> | <a href="/dojos/<%= d.id %>" data-method="delete">Delete</a> 
+      	<td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+
+
+<a href="/dojos/new">New Dojo</a>
